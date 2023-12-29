@@ -1,11 +1,13 @@
 from card import Card
-from random import choice
+from random import choice, shuffle
 
 class Deck():
 	def __init__(self, num_of_players, num_of_cards) -> None:
 		self.num_of_cards = num_of_cards
 		self.num_of_players = num_of_players
 		self.kozr = self.determine_kozr()
+		self.generated_deck = self.generate_deck()
+		self.shuffled_deck = self.shuffle_deck(self.generated_deck)
 
 	@classmethod
 	def determine_kozr(cls):
@@ -23,9 +25,11 @@ class Deck():
 		elif self.num_of_cards == 52:
 			values = list(range(2, 15))
 	
-	def shuffle_deck():
-		pass
-
+	def shuffle_deck(self, generated_deck):
+		shuffled_deck = generated_deck.copy()
+		shuffle(shuffled_deck)
+		return shuffled_deck
+	
 	suits = ['hearts', 'diamonds', 'clubs', 'spades']
 
 	symbol_map = {
@@ -45,4 +49,4 @@ class Deck():
 	}
 
 	def __str__(self) -> str:
-		return "\n".join([str(card) for card in self.generate_deck()])
+		return "\n".join([str(card) for card in self.shuffled_deck])
