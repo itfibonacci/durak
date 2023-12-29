@@ -6,11 +6,13 @@ class Card():
 		self.kozr = kozr
 	
 	def __ge__(self, other):
+		if not isinstance(other, Card):
+			return NotImplemented
 		if self.kozr == True and other.kozr == True:
 			return (self.numerical_value >= other.numerical_value)
-		elif self.kozr == True:
+		elif self.kozr:
 			return True
-		elif other.kozr == True:
+		elif other.kozr:
 			return False
 		else:
 			return self.numerical_value >= other.numerical_value

@@ -22,6 +22,31 @@ def main():
 	args = parser.parse_args()
 
 	# one data structure to keep all the cards
+	suits = ['hearts', 'diamonds', 'clubs', 'spades']
+	
+	symbol_map = {
+		2: '2',
+		3: '3',
+		4: '4',
+		5: '5',
+		6: '6',
+		7: '7',
+		8: '8',
+		9: '9',
+		10: '10',
+		11: 'J',  # Jack
+		12: 'Q',  # Queen
+		13: 'K',  # King
+		14: 'A'   # Ace
+	}
+
+	if args.cards == 24:
+		values = list(range(9, 15))
+	elif args.cards == 36:
+		values = list(range(6, 15))
+	elif args.cards == 52:
+		values = list(range(2, 15))
+
 	# one dictionary to keep the cards remaining to be distributed
 	# one list for bita
 	# classes/types: card, deck
