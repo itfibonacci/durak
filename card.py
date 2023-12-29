@@ -16,3 +16,6 @@ class Card():
 			return False
 		else:
 			return self.numerical_value >= other.numerical_value
+	
+	def __str__(self) -> str:
+		return f'Card: suit: {self.suit} numerical_value: {self.numerical_value} symbol_name: {self.symbol_name} kozr: {self.kozr}'
