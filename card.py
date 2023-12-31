@@ -1,9 +1,9 @@
 class Card():
-	def __init__(self, suit, numerical_value, symbol_name, kozr) -> None:
+	def __init__(self, suit, numerical_value, symbol_name) -> None:
 		self.suit = suit
 		self.numerical_value = numerical_value
 		self.symbol_name = symbol_name
-		self.kozr = kozr
+		self.kozr = False
 	
 	def __ge__(self, other):
 		if not isinstance(other, Card):
