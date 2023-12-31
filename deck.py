@@ -16,7 +16,7 @@ class Deck():
 	# kozr attribute
 	def update_kozr(self):
 		for card in self.generated_deck:
-			if card.suit == self.kozr:
+			if card.suit == self.kozr.suit:
 				card.kozr = True
 		logging.info(f'Updated each card\'s kozr value.')
 

@@ -78,10 +78,13 @@ def main():
 		deck.determine_kozr_card()
 	else:
 		logging.info(f'No Prikup. Kozr will be determined from the last player\'s hand')
-		deck.kozr = choice(players[-1].hand)
+		deck.determine_kozr_card(players[-1].hand)
 	
 	deck.update_kozr()
 
+	# Log each player's hand to the log file
+	for player in players:
+		logging.info(f'{str(player)}')
 	
 if __name__ == "__main__":
 	main()
