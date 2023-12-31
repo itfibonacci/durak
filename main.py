@@ -86,5 +86,9 @@ def main():
 	for player in players:
 		logging.info(f'{str(player)}')
 	
+	# Log the prikup to the log file
+	logging.info(f'Prikup is: {[str(prikup_card) for prikup_card in deck.prikup]}')
+		
+	
 if __name__ == "__main__":
 	main()

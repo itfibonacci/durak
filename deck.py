@@ -20,11 +20,10 @@ class Deck():
 				card.kozr = True
 		logging.info(f'Updated each card\'s kozr value.')
 
-	def determine_kozr_card(self, kozr=None):
-		if kozr:
-			self.kozr = kozr
-			logging.info(f'Kozr has been established from the last player\'s hand. {self.kozr}')
-			return self.kozr
+	def determine_kozr_card(self, last_players_hand=None):
+		if last_players_hand:
+			self.kozr = choice(last_players_hand)
+			logging.info(f'Kozr has been established from the last player\'s hand. {self.kozr.suit}')
 		else:
 			self.kozr = choice(self.prikup)
 			logging.info(f'Chose the kozr from prikup. {self.kozr}')
