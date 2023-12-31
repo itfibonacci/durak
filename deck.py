@@ -13,6 +13,9 @@ class Deck():
 	def determine_kozr(cls):
 		return choice(cls.suits)
 
+	# distribute deck to the players. so that each player has 6 cards
+	# player class i think should be created
+
 	def generate_deck(self):
 		# first step is to determine the kozr/trump suite
 		# one data structure to keep all the cards
@@ -21,9 +24,13 @@ class Deck():
 						for suit in Deck.suits
 						for numerical_value in range(9, 15)]
 		elif self.num_of_cards == 36:
-			values = list(range(6, 15))
+			return [ Card( suit, numerical_value, Deck.symbol_map[numerical_value], suit == self.kozr ) 
+						for suit in Deck.suits
+						for numerical_value in range(6, 15)]
 		elif self.num_of_cards == 52:
-			values = list(range(2, 15))
+			return [ Card( suit, numerical_value, Deck.symbol_map[numerical_value], suit == self.kozr ) 
+						for suit in Deck.suits
+						for numerical_value in range(2, 15)]
 	
 	def shuffle_deck(self, generated_deck):
 		shuffled_deck = generated_deck.copy()
