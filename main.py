@@ -9,8 +9,7 @@ from deck import Deck
 from card import Card
 from player import Player
 
-def get_log_filename():
-	dir_name = "logs"
+def get_log_filename(dir_name):
 	# Check if the directory exists
 	if not path.exists(dir_name):
 		# If the directory doesn't exist, create it
@@ -31,7 +30,7 @@ def main():
 	# non class based approach
 	# user running program: python main.py --cards 36 --players 4
 	# make sure to check that number of cards >= num_of_players * 6
-	logging.basicConfig(filename=get_log_filename(), encoding='utf-8', format='%(asctime)s:%(levelname)s:%(message)s', level=logging.DEBUG)
+	logging.basicConfig(filename=get_log_filename("logs"), encoding='utf-8', format='%(asctime)s:%(levelname)s:%(message)s', level=logging.DEBUG)
 
 	class CardsAction(argparse.Action):
 		def __call__(self, parser, namespace, values, option_string=None):

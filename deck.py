@@ -7,11 +7,12 @@ class Deck():
 	def __init__(self, num_of_players, num_of_cards) -> None:
 		self.num_of_cards = num_of_cards
 		self.num_of_players = num_of_players
-		self.kozr = False
+		self.kozr = None
 		self.generated_deck = self.generate_deck()
 		self.shuffled_deck = self.shuffle_deck()
 		self.prikup = []
 		self.current_turns_position = 1
+		logging.info(f'Initialized a deck, for {self.num_of_players} players and {self.num_of_cards} cards')
 	
 	# the below method is used to run after a kozr has been determined and will update the card's
 	# kozr attribute

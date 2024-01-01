@@ -5,7 +5,7 @@ from random import choice
 
 class Player():
 	def __init__(self, position) -> None:
-		self.name = choice(self.first_names)		
+		self.name = choice(self.first_names)	
 		self.position = position
 		self.hand = []
 		logging.info(f'Created a player object with Name: {self.name}, Position: {self.position}')
