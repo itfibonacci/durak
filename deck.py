@@ -11,6 +11,7 @@ class Deck():
 		self.generated_deck = self.generate_deck()
 		self.shuffled_deck = self.shuffle_deck()
 		self.prikup = []
+		self.current_turns_position = 1
 	
 	# the below method is used to run after a kozr has been determined and will update the card's
 	# kozr attribute

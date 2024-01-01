@@ -63,9 +63,9 @@ def main():
 	distribution = deck.distribute_cards()
 	logging.info(f'Created a generator for distributing the cards.')
 
+	# Create the players and for each player distribute 6 cards
 	for i in range(args.players):
 		player = Player(i + 1)
-		logging.info(f'Created a player with name {player.name}, position: {player.position}')
 		player.hand = next(distribution)
 		logging.info(f'Distributed the hand to {player.name}')
 		players.append(player)
@@ -87,8 +87,7 @@ def main():
 		logging.info(f'{str(player)}')
 	
 	# Log the prikup to the log file
-	logging.info(f'Prikup is: {[str(prikup_card) for prikup_card in deck.prikup]}')
-		
-	
+	logging.info(f'Prikup is: {[str(prikup_card) for prikup_card in deck.prikup]}')	
+
 if __name__ == "__main__":
 	main()
