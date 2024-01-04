@@ -57,10 +57,9 @@ class TestDurakGame(unittest.TestCase):
 		self.assertEqual(len(deck.generated_deck), 24)
 		logging.info(f'Assert that the prikup is empty.')
 		self.assertEqual(len(deck.prikup), 0)
-		logging.info(f'Assert that a kozer has not been determined yet.')
+		logging.info(f'Assert that the prikup is of length 0.')
 		self.assertIsNone(deck.kozr)
 		logging.info(f'Assert that a kozer has not been determined yet.')
-		
 
 if __name__ == "__main__":
 	unittest.main(verbosity=2)

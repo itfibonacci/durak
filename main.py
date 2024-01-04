@@ -58,7 +58,7 @@ def main():
 	# card1 = Card('hearts', 6, '6', True)
 	# card2 = Card('hearts', 13, 'K',True)
 	# print(card2)
-	players = []
+
 	distribution = deck.distribute_cards()
 	logging.info(f'Created a generator for distributing the cards.')
 
@@ -67,7 +67,6 @@ def main():
 		player = Player(i + 1)
 		player.hand = next(distribution)
 		logging.info(f'Distributed the hand to {player.name}')
-		players.append(player)
 	
 	# returns all the remaining cards that havent been distributed to the prikup
 	deck.populate_prikup(list(itertools.chain.from_iterable(distribution)))
@@ -77,12 +76,12 @@ def main():
 		deck.determine_kozr_card()
 	else:
 		logging.info(f'No Prikup. Kozr will be determined from the last player\'s hand')
-		deck.determine_kozr_card(players[-1].hand)
+		deck.determine_kozr_card(Player.players[-1].hand)
 	
 	deck.update_kozr()
 
 	# Log each player's hand to the log file
-	for player in players:
+	for player in Player.players:
 		logging.info(f'{str(player)}')
 	
 	# Log the prikup to the log file
